@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Away Message Options</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            padding: 32px;
+        }
+
+        .options-page {
+            max-width: 1120px;
+            margin: 0 auto;
+        }
+
+        .options-intro {
+            max-width: 680px;
+            margin: 0 0 24px;
+            padding: 14px 16px;
+            background: #fffefb;
+            border: 1px solid #000000;
+            box-shadow:
+                inset 1px 1px 0 #ffffff,
+                inset -1px -1px 0 #808080,
+                5px 6px 0 rgba(0, 0, 0, 0.22);
+        }
+
+        .options-intro h1 {
+            margin: 0 0 6px;
+            font-size: 18px;
+        }
+
+        .options-intro p {
+            margin: 0;
+            font-family: var(--reading-font);
+            font-size: 14px;
+            line-height: 1.45;
+        }
+
+        .options-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(280px, 1fr));
+            gap: 24px;
+            align-items: start;
+        }
+
+        .option-card {
+            display: grid;
+            gap: 10px;
+        }
+
+        .option-label {
+            margin: 0;
+            color: #ffffff;
+            font-size: 13px;
+            font-weight: 700;
+            text-shadow: 1px 1px 0 #00185a;
+        }
+
+        .option-note {
+            margin: 0;
+            color: #eef5ff;
+            font-family: var(--reading-font);
+            font-size: 13px;
+            line-height: 1.4;
+        }
+
+        .option-window {
+            width: 320px;
+        }
+
+        .option-body {
+            padding: 8px;
+        }
+
+        .mini-profile {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            padding: 6px;
+            background: #dcdcdc;
+            border: 1px solid #808080;
+            box-shadow: inset 1px 1px 0 #ffffff;
+        }
+
+        .mini-profile img {
+            width: 34px;
+            height: 34px;
+            padding: 2px;
+            background: #ffffff;
+            border: 1px solid #808080;
+        }
+
+        .classic-strip {
+            margin-top: 8px;
+            padding: 5px 6px;
+            background: #fff4b8;
+            border: 1px solid #9b8a36;
+            box-shadow: inset 1px 1px 0 #ffffff;
+        }
+
+        .away-card-preview {
+            margin-top: 8px;
+            padding: 8px;
+            background: #fff4b8;
+            border: 1px solid #000000;
+            box-shadow:
+                inset 1px 1px 0 #ffffff,
+                inset -1px -1px 0 #9b8a36;
+        }
+
+        .away-card-preview strong {
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .away-dialog {
+            width: 360px;
+            margin-top: 16px;
+        }
+
+        .away-dialog .transcript {
+            min-height: 96px;
+        }
+
+        .profile-status {
+            margin: 2px 0 0;
+            color: #333333;
+            font-family: var(--reading-font);
+            font-size: 12px;
+        }
+
+        @media (max-width: 760px) {
+            body {
+                padding: 18px;
+            }
+
+            .options-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main class="options-page">
+        <section class="options-intro">
+            <h1>Away message UI options</h1>
+            <p>Pick the direction you like best for: <strong>product &amp; design at squint AI</strong>.</p>
+        </section>
+
+        <div class="options-grid">
+            <section class="option-card">
+                <p class="option-label">Option 1: Classic AIM status strip</p>
+                <p class="option-note">Small and very nostalgic. Reads like a compact away/status line.</p>
+                <div class="window option-window">
+                    <header class="title-bar">
+                        <div class="title-bar__label">
+                            <img class="runner-icon" src="assets/runner-glyph.svg" alt="">
+                            <span>Buddy List</span>
+                        </div>
+                    </header>
+                    <div class="option-body">
+                        <div class="mini-profile">
+                            <img src="assets/profile-pic.svg" alt="">
+                            <div>
+                                <p class="screen-name">hareem</p>
+                                <p class="status-line"><span class="status-light" aria-hidden="true"></span> online</p>
+                            </div>
+                        </div>
+                        <div class="classic-strip"><strong>Away:</strong> product &amp; design at squint AI</div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="option-card">
+                <p class="option-label">Option 2: Mini away-message card</p>
+                <p class="option-note">More visible, still compact, and keeps the old yellow-note feeling.</p>
+                <div class="window option-window">
+                    <header class="title-bar">
+                        <div class="title-bar__label">
+                            <img class="runner-icon" src="assets/runner-glyph.svg" alt="">
+                            <span>Buddy List</span>
+                        </div>
+                    </header>
+                    <div class="option-body">
+                        <div class="mini-profile">
+                            <img src="assets/profile-pic.svg" alt="">
+                            <div>
+                                <p class="screen-name">hareem</p>
+                                <p class="status-line"><span class="status-light" aria-hidden="true"></span> online</p>
+                            </div>
+                        </div>
+                        <div class="away-card-preview">
+                            <strong>Away Message</strong>
+                            <span>product &amp; design at squint AI</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="option-card">
+                <p class="option-label">Option 3: Pop-up away message</p>
+                <p class="option-note">Most “AIM feature” feeling. The status gets its own little dialog window.</p>
+                <div class="window option-window">
+                    <header class="title-bar">
+                        <div class="title-bar__label">
+                            <img class="runner-icon" src="assets/runner-glyph.svg" alt="">
+                            <span>Buddy List</span>
+                        </div>
+                    </header>
+                    <div class="option-body">
+                        <div class="mini-profile">
+                            <img src="assets/profile-pic.svg" alt="">
+                            <div>
+                                <p class="screen-name">hareem</p>
+                                <p class="status-line"><span class="status-light" aria-hidden="true"></span> online</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="window away-dialog">
+                    <header class="title-bar">
+                        <div class="title-bar__label">
+                            <span>Away Message</span>
+                        </div>
+                        <div class="window-controls" aria-hidden="true">
+                            <span class="window-button">x</span>
+                        </div>
+                    </header>
+                    <div class="chat-window__body">
+                        <div class="transcript">
+                            <p class="message-meta">hareem&nbsp;&nbsp;<span>now</span></p>
+                            <div class="message-text">
+                                <p>product &amp; design at squint AI</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="option-card">
+                <p class="option-label">Option 4: Profile header treatment</p>
+                <p class="option-note">Cleanest. No separate away box; the role lives directly under your name.</p>
+                <div class="window option-window">
+                    <header class="title-bar">
+                        <div class="title-bar__label">
+                            <img class="runner-icon" src="assets/runner-glyph.svg" alt="">
+                            <span>Buddy List</span>
+                        </div>
+                    </header>
+                    <div class="option-body">
+                        <div class="mini-profile">
+                            <img src="assets/profile-pic.svg" alt="">
+                            <div>
+                                <p class="screen-name">hareem</p>
+                                <p class="status-line"><span class="status-light" aria-hidden="true"></span> online</p>
+                                <p class="profile-status">product &amp; design at squint AI</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+</body>
+</html>
