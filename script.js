@@ -1,3 +1,5 @@
+const CACHE_VERSION = "cache-fix-1";
+
 const buddyGroups = document.querySelector("#buddy-groups");
 const windowLayer = document.querySelector("#window-layer");
 
@@ -89,7 +91,7 @@ function textToParagraphs(text) {
 }
 
 async function loadText(file) {
-    const response = await fetch(file);
+    const response = await fetch(`${file}?v=${CACHE_VERSION}`, { cache: "no-store" });
     if (!response.ok) {
         throw new Error(`Could not load ${file}`);
     }
@@ -177,7 +179,7 @@ async function openWriting(item) {
 
 async function initializeSite() {
     try {
-        const response = await fetch("data/writings.json");
+        const response = await fetch(`data/writings.json?v=${CACHE_VERSION}`, { cache: "no-store" });
         if (!response.ok) {
             throw new Error("Could not load writing list.");
         }
