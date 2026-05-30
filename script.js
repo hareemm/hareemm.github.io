@@ -1,4 +1,4 @@
-const CACHE_VERSION = "cache-fix-1";
+const CACHE_VERSION = "mobile-1";
 
 const buddyGroups = document.querySelector("#buddy-groups");
 const windowLayer = document.querySelector("#window-layer");
@@ -6,6 +6,15 @@ const windowLayer = document.querySelector("#window-layer");
 let siteData;
 let topZ = 20;
 const openWindows = new Map();
+const mobileMediaQuery = window.matchMedia("(max-width: 700px)");
+
+function isMobileLayout() {
+    return mobileMediaQuery.matches;
+}
+
+function setMobileReadingMode(isReading) {
+    document.querySelector(".desktop").classList.toggle("mobile-reading", isReading);
+}
 
 function statusClass(status) {
     return `buddy-icon buddy-icon--${status || "online"}`;
@@ -71,6 +80,15 @@ function closeWindow(id) {
 
     windowElement.remove();
     openWindows.delete(id);
+
+    if (isMobileLayout()) {
+        setMobileReadingMode(false);
+    }
+}
+
+function closeAllWindows() {
+    openWindows.forEach((windowElement) => windowElement.remove());
+    openWindows.clear();
 }
 
 function escapeHtml(text) {
@@ -99,7 +117,9 @@ async function loadText(file) {
 }
 
 async function openWriting(item) {
-    if (openWindows.has(item.id)) {
+    if (isMobileLayout()) {
+        closeAllWindows();
+    } else if (openWindows.has(item.id)) {
         focusWindow(item.id);
         return;
     }
@@ -116,6 +136,7 @@ async function openWriting(item) {
 
     windowElement.innerHTML = `
         <header class="title-bar">
+            <button class="mobile-back-button" type="button" aria-label="Back to Buddy List">Back</button>
             <div class="title-bar__label">
                 <img class="runner-icon" src="assets/runner-glyph.svg" alt="">
                 <span id="${item.id}-title">${item.title}</span>
@@ -164,10 +185,15 @@ async function openWriting(item) {
 
     windowElement.addEventListener("pointerdown", () => focusWindow(item.id));
     windowElement.querySelector("button[aria-label^='Close']").addEventListener("click", () => closeWindow(item.id));
+    windowElement.querySelector(".mobile-back-button").addEventListener("click", () => closeWindow(item.id));
 
     windowLayer.append(windowElement);
     openWindows.set(item.id, windowElement);
     focusWindow(item.id);
+
+    if (isMobileLayout()) {
+        setMobileReadingMode(true);
+    }
 
     try {
         const text = await loadText(item.file);
@@ -187,7 +213,7 @@ async function initializeSite() {
         siteData = await response.json();
         renderBuddyList(siteData);
         const firstWriting = siteData.groups[0]?.items[0];
-        if (firstWriting) {
+        if (firstWriting && !isMobileLayout()) {
             openWriting(firstWriting);
         }
     } catch (error) {
@@ -196,3 +222,22 @@ async function initializeSite() {
 }
 
 initializeSite();
+
+
+mobileMediaQuery.addEventListener("change", () => {
+    if (!isMobileLayout()) {
+        setMobileReadingMode(false);
+        return;
+    }
+
+    if (openWindows.size > 1) {
+        const newestWindow = Array.from(openWindows.entries()).at(-1);
+        closeAllWindows();
+        if (newestWindow) {
+            openWindows.set(newestWindow[0], newestWindow[1]);
+            windowLayer.append(newestWindow[1]);
+        }
+    }
+
+    setMobileReadingMode(openWindows.size > 0);
+});
