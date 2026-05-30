@@ -4,43 +4,51 @@
 
 ### Product overview
 
-This repository is a **single-file static GitHub Pages site** (`hareemm.github.io`): a travel destination questionnaire in `index.html` that sends submissions to **Segment** via the browser SDK (`analytics.identify` + `analytics.track('destination submitted', …)`). There is no backend, package manager, build step, or test suite in the repo.
+This repository is a **single-file static GitHub Pages site** (`hareemm.github.io`): a travel destination questionnaire in `index.html` that sends submissions to **Segment** via the browser SDK (`analytics.identify` + `analytics.track('destination submitted', …)`). There is no backend or build step.
 
 ### Running locally
 
-From the repository root:
+Preferred (includes HTML validation tooling):
 
 ```bash
-python3 -m http.server 8080
+npm install
+npm run dev
 ```
 
-Open `http://localhost:8080/index.html`.
+Open `http://localhost:8080` (serves repo root; no `/index.html` path required).
 
 Use a tmux session for long-running dev servers (see cloud agent shell guidelines).
+
+Fallback without npm: `python3 -m http.server 8080` → `http://localhost:8080/index.html`.
 
 ### Lint / test / build
 
 | Task | Command | Notes |
 |------|---------|--------|
-| Lint | N/A | No ESLint/Prettier or other linters configured |
+| Validate HTML | `npm run validate` | Uses `html-validate` on `index.html` |
 | Test | N/A | No automated tests in the repo |
 | Build | N/A | No build step; deploy is static `index.html` to GitHub Pages |
 
+### Local dev analytics mock
+
+When the hostname is `localhost` or `127.0.0.1`, `index.html` installs a console-logging analytics mock instead of loading Segment from the CDN. The mock invokes `track` callbacks immediately, so form submit reload works in dev even when the embedded Segment write key is invalid (404 from CDN).
+
+Production traffic on `*.github.io` is unchanged and still loads the real Segment snippet.
+
 ### Hello-world verification
 
-1. Start the static server (above).
-2. Load the questionnaire page and confirm the heading **"What is your favorite place to travel?"**.
-3. Fill destination, details, name, and email, then click **submit**.
+1. `npm run dev`
+2. Open `http://localhost:8080` and confirm **"What is your favorite place to travel?"**
+3. Fill destination, details, name, and email; click **submit**
+4. Page should reload after submit; browser console shows `[dev analytics] track destination submitted`
 
-**Submit behavior:** `identify()` calls `analytics.track(..., callback)` and the callback sets `window.location.href = ""` to reload. That callback only runs after Segment’s full library loads from `cdn.segment.com`.
+### Production Segment caveat
 
-### Segment / network caveat
-
-The Segment write key is **hardcoded** in `index.html`. If `https://cdn.segment.com/analytics.js/v1/<writeKey>/analytics.min.js` returns **404**, the stub `analytics` queue never completes the track callback, so the form may look stuck after submit even though the static app and server are fine. Outbound HTTPS to `cdn.segment.com` is required for full E2E analytics; use a valid write key in Segment (or mock Segment in tests) to verify the full submit flow.
+On GitHub Pages, if `https://cdn.segment.com/analytics.js/v1/<writeKey>/analytics.min.js` returns **404**, the stub queue never completes the track callback and submit appears stuck. Fix by updating the write key in `index.html` to a valid Segment source key.
 
 ### Services
 
 | Service | Required | How to run |
 |---------|----------|------------|
-| Static HTTP server | For local dev over `http://` | `python3 -m http.server 8080` |
-| Segment CDN | For full submit + analytics E2E | External; no local service |
+| Static dev server | For local dev | `npm run dev` (port 8080) |
+| Segment CDN | Production E2E only | External; mocked on localhost |
