@@ -1,6 +1,5 @@
 const buddyGroups = document.querySelector("#buddy-groups");
 const windowLayer = document.querySelector("#window-layer");
-const awayButton = document.querySelector("#away-message-button");
 
 let siteData;
 let topZ = 20;
@@ -182,14 +181,6 @@ async function initializeSite() {
 
         siteData = await response.json();
         renderBuddyList(siteData);
-        awayButton.addEventListener("click", () => openWriting({
-            id: "away-message",
-            title: siteData.awayMessage.title,
-            file: siteData.awayMessage.file,
-            timestamp: siteData.awayMessage.timestamp,
-            status: siteData.awayMessage.status
-        }));
-
         const firstWriting = siteData.groups[0]?.items[0];
         if (firstWriting) {
             openWriting(firstWriting);
