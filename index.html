@@ -43,50 +43,19 @@
                 <div class="user-strip">
                     <img class="user-strip__icon" src="assets/runner-glyph.svg" alt="">
                     <div>
-                        <p class="screen-name">hareemwrites</p>
-                        <p class="status-line">Available</p>
+                        <p class="screen-name">hareem</p>
+                        <p class="status-line"><span class="status-light" aria-hidden="true"></span> online</p>
                     </div>
                 </div>
 
-                <div class="buddy-pane" role="list" aria-label="Writing groups">
-                    <section class="buddy-group">
-                        <h2 class="buddy-group__title"><span class="twisty">▾</span> Recent <span class="buddy-count">(2/2)</span></h2>
-                        <ul class="buddy-group__list">
-                            <li class="buddy">
-                                <span class="buddy-icon buddy-icon--online"></span>
-                                <span class="buddy__name">A Rainy Evening Note</span>
-                            </li>
-                            <li class="buddy">
-                                <span class="buddy-icon buddy-icon--away"></span>
-                                <span class="buddy__name">Tiny Rituals</span>
-                            </li>
-                        </ul>
-                    </section>
-
-                    <section class="buddy-group">
-                        <h2 class="buddy-group__title"><span class="twisty">▾</span> Musings <span class="buddy-count">(2/2)</span></h2>
-                        <ul class="buddy-group__list">
-                            <li class="buddy">
-                                <span class="buddy-icon buddy-icon--online"></span>
-                                <span class="buddy__name">Notes on Looking Closely</span>
-                            </li>
-                            <li class="buddy">
-                                <span class="buddy-icon buddy-icon--idle"></span>
-                                <span class="buddy__name">How Memory Keeps Time</span>
-                            </li>
-                        </ul>
-                    </section>
-
-                    <section class="buddy-group">
-                        <h2 class="buddy-group__title"><span class="twisty">▾</span> Archive <span class="buddy-count">(1/1)</span></h2>
-                        <ul class="buddy-group__list">
-                            <li class="buddy">
-                                <span class="buddy-icon buddy-icon--away"></span>
-                                <span class="buddy__name">Postcard From Somewhere</span>
-                            </li>
-                        </ul>
-                    </section>
+                <div id="buddy-groups" class="buddy-pane" role="list" aria-label="Writing groups">
+                    <p class="loading-note">Loading buddy list...</p>
                 </div>
+
+                <button id="away-message-button" class="away-message-button" type="button">
+                    <strong>Away Message</strong>
+                    <span>product &amp; design at squint ai</span>
+                </button>
 
                 <div class="buddy-actions" aria-hidden="true">
                     <button type="button">IM</button>
@@ -97,63 +66,9 @@
             </div>
         </section>
 
-        <article class="window chat-window" aria-labelledby="chat-title">
-            <header class="title-bar">
-                <div class="title-bar__label">
-                    <img class="runner-icon" src="assets/runner-glyph.svg" alt="">
-                    <span id="chat-title">A Rainy Evening Note</span>
-                </div>
-                <div class="window-controls" aria-hidden="true">
-                    <span class="window-button">_</span>
-                    <span class="window-button">□</span>
-                    <span class="window-button">x</span>
-                </div>
-            </header>
-
-            <nav class="menu-bar" aria-label="Chat window menus">
-                <span>File</span>
-                <span>Edit</span>
-                <span>Insert</span>
-                <span>People</span>
-            </nav>
-
-            <div class="chat-tool-row" aria-hidden="true">
-                <button type="button">Warn</button>
-                <button type="button">Block</button>
-                <button type="button">Add Buddy</button>
-                <button type="button">Get Info</button>
-            </div>
-
-            <div class="chat-window__body">
-                <div class="transcript">
-                    <p class="message-meta">hareemwrites&nbsp;&nbsp;<span>9:42 PM</span></p>
-                    <div class="message-text">
-                        <p>
-                            This is where one full piece of writing will appear as a single long message.
-                            For now, it is placeholder text so we can focus on the shape, color, and mood
-                            of the page before adding any clicking or loading behavior.
-                        </p>
-                        <p>
-                            The finished version will let each buddy name open its own conversation window,
-                            with your writing inside instead of a typical chat exchange.
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="format-row" aria-hidden="true">
-                <button type="button">A</button>
-                <button type="button">B</button>
-                <button type="button">I</button>
-                <button type="button">:-)</button>
-                <span class="format-row__hint">Read-only writing window</span>
-            </div>
-
-            <footer class="chat-input-preview" aria-hidden="true">
-                <div class="fake-input">This site is read-only: the writing is the message.</div>
-                <button type="button" disabled>Send</button>
-            </footer>
-        </article>
+        <section id="window-layer" class="window-layer" aria-label="Open writing windows"></section>
     </main>
+
+    <script src="script.js"></script>
 </body>
 </html>

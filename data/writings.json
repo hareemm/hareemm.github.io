@@ -1,0 +1,62 @@
+{
+  "author": "hareem",
+  "status": "online",
+  "awayMessage": {
+    "title": "Away Message",
+    "file": "content/about.txt",
+    "timestamp": "now",
+    "status": "away"
+  },
+  "groups": [
+    {
+      "name": "Musings",
+      "items": [
+        {
+          "id": "rainy-evening-note",
+          "title": "A Rainy Evening Note",
+          "file": "writings/rainy-evening-note.txt",
+          "timestamp": "9:42 PM",
+          "status": "online"
+        },
+        {
+          "id": "tiny-rituals",
+          "title": "Tiny Rituals",
+          "file": "writings/tiny-rituals.txt",
+          "timestamp": "8:13 PM",
+          "status": "away"
+        }
+      ]
+    },
+    {
+      "name": "Currently Dabbling In",
+      "items": [
+        {
+          "id": "looking-closely",
+          "title": "Notes on Looking Closely",
+          "file": "writings/looking-closely.txt",
+          "timestamp": "7:05 PM",
+          "status": "online"
+        },
+        {
+          "id": "memory-keeps-time",
+          "title": "How Memory Keeps Time",
+          "file": "writings/memory-keeps-time.txt",
+          "timestamp": "6:31 PM",
+          "status": "idle"
+        }
+      ]
+    },
+    {
+      "name": "Let's Chat",
+      "items": [
+        {
+          "id": "postcard-somewhere",
+          "title": "Postcard From Somewhere",
+          "file": "writings/postcard-somewhere.txt",
+          "timestamp": "5:17 PM",
+          "status": "away"
+        }
+      ]
+    }
+  ]
+}

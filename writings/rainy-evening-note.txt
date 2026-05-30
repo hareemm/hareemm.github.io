@@ -1,0 +1,3 @@
+This is placeholder writing for A Rainy Evening Note. Later, you can replace this text with a finished piece.
+
+The site treats the piece like one long instant message: timestamped, signed by hareem, and opened from the Buddy List.

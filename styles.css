@@ -87,6 +87,11 @@ button {
     text-shadow: none;
 }
 
+button.window-button {
+    padding: 0;
+    cursor: pointer;
+}
+
 .menu-bar {
     display: flex;
     gap: 13px;
@@ -228,8 +233,22 @@ button {
     display: flex;
     align-items: center;
     gap: 5px;
+    width: 100%;
     min-height: 18px;
-    padding-left: 18px;
+    padding: 1px 2px 1px 18px;
+    color: #000000;
+    text-align: left;
+    background: transparent;
+    border: 0;
+    box-shadow: none;
+    cursor: pointer;
+}
+
+.buddy:hover,
+.buddy:focus {
+    color: #ffffff;
+    background: #000080;
+    outline: none;
 }
 
 .buddy__name {
@@ -289,12 +308,27 @@ button {
         inset -1px -1px 0 #707070;
 }
 
+.window-layer {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
 .chat-window {
     position: absolute;
-    top: 84px;
-    left: 310px;
+    top: var(--window-top, 84px);
+    left: var(--window-left, 310px);
+    z-index: var(--window-z, 10);
     width: min(552px, calc(100vw - 350px));
     min-width: 430px;
+    pointer-events: auto;
+}
+
+.chat-window.is-active {
+    box-shadow:
+        inset 1px 1px 0 #ffffff,
+        inset -1px -1px 0 #404040,
+        10px 12px 0 rgba(0, 0, 0, 0.34);
 }
 
 .chat-tool-row {
@@ -380,4 +414,56 @@ button {
 .chat-input-preview button {
     min-width: 64px;
     color: #777777;
+}
+
+
+.status-light {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    margin-right: 3px;
+    background: #00c000;
+    border: 1px solid #174017;
+    border-radius: 50%;
+}
+
+.loading-note {
+    margin: 4px;
+    color: #555555;
+}
+
+.away-message-button {
+    display: grid;
+    gap: 2px;
+    width: 100%;
+    margin-top: 7px;
+    padding: 6px;
+    color: #000000;
+    text-align: left;
+    background: #fff4b8;
+    border: 1px solid #000000;
+    box-shadow:
+        inset 1px 1px 0 #ffffff,
+        inset -1px -1px 0 #9b8a36;
+    cursor: pointer;
+}
+
+.away-message-button:hover,
+.away-message-button:focus {
+    outline: 1px dotted #000000;
+}
+
+.away-message-button span {
+    font-size: 11px;
+}
+
+.window-title-button {
+    border: 0;
+    background: transparent;
+}
+
+.error-note {
+    margin: 8px;
+    color: #7a0000;
+    font-weight: 700;
 }
