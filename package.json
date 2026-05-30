@@ -1,0 +1,14 @@
+{
+  "name": "hareemm.github.io",
+  "private": true,
+  "description": "Travel destination questionnaire (GitHub Pages static site)",
+  "scripts": {
+    "dev": "serve -l 8080",
+    "start": "npm run dev",
+    "validate": "html-validate index.html"
+  },
+  "devDependencies": {
+    "html-validate": "^9.7.0",
+    "serve": "^14.2.4"
+  }
+}
