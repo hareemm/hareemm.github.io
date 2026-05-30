@@ -1,0 +1,23 @@
+You're in GTM. You want to know how a feature works. So you open a sales enablement deck. You scroll past the logo slide and a few positioning slides. You finally find the screenshot that's already two releases old and reverse-engineer how it works from a diagram built for a different audience. Then you cross-reference that with Slack messages from the latest release to piece together how that new feature actually works now. 56 minutes later, there's 4 minutes until your prospect call. Time to prep… everything else.
+
+You're in EPD. You launched something last week and want to know how it's doing. You jump into your tool of choice — Amplitude? Looker? Tableau? — and start staring at a dashboard that made sense when you first built it, but makes little sense now. Is this chart cohorted? Is this last month or last week? Does it exclude internal users? Wait, is this drop-off real? Let me click into another view. One second. Oh, ok. Now you're ready to suggest a couple of no-brainer product improvements.
+
+Every layer between you and the outcome you want is as well-intentioned as it is lossy. That's the world most of us grew up in. And that world is already history.
+
+The impacts of Claude code, Cursor, Codex, etc are obvious. Software is cheaper and faster than ever to develop. I can stand up new versions of tools that fit me like a glove instead of being at the mercy of these OOTB, one-size-fits all software mittens. But the first-order effect isn't the only interesting one.
+
+The second-order effect of this new class of software is the Layer Collapse. Namely: the way we get answers went from horse to car overnight. The questions you have no longer need to be journeys across interfaces to hunt and gather context to form a perspective. Now, the question is the query. The answers are instantaneous, relevant, and personalized. They actually invite you to dig deeper instead of setting you on a new scavenger hunt with each follow up question you have.
+
+These days, I think a lot about what this means for my role as an operator. When the scaffolding automates itself, I get to spend my time on what the data tells me, not on getting the data to tell me anything at all. More time with customers. More time using the product. More time selling, experimenting, and trying things. I get to take more shots on goal. The insights I was seeking stop being the deliverable; they are now the starting point.
+
+Here’s what this new world makes obvious: the scaffolding was never the work. It was the tax on doing the work. When that tax drops to near zero, you find out pretty quickly how much of your time was building vs. packaging.
+
+The teams that get this will stop investing in better layers and start investing in better answers. Better data models, not better dashboards. Better products, not better enablement decks. Better systems, not better meetings.
+
+The teams that aren't there yet will keep optimizing the scaffolding. Better decks. Shorter stand-ups. More metrics reviews. Incremental improvements to an architecture that's already obsolete... Very fast horses.
+
+The reality is, the layers aren't just collapsing: they have collapsed already. The distance between a question and its answer used to be measured in meetings, documents, dashboards, and people. Now it's milliseconds. Everything else was latency we got used to.
+
+One day, I'll tell my kids there used to be an entire economy between a question and its answer. For now, I'm just trying to be worth the time I got back.
+
+hareem

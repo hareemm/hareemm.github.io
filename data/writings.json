@@ -12,6 +12,13 @@
       "name": "Musings",
       "items": [
         {
+          "id": "the-layer-collapse",
+          "title": "The Layer Collapse",
+          "file": "writings/the-layer-collapse.txt",
+          "timestamp": "now",
+          "status": "online"
+        },
+        {
           "id": "rainy-evening-note",
           "title": "A Rainy Evening Note",
           "file": "writings/rainy-evening-note.txt",
