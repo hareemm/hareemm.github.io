@@ -27,13 +27,22 @@ function renderBuddyList(data) {
 
         group.items.forEach((item) => {
             const row = document.createElement("li");
-            const button = document.createElement("button");
-            button.className = "buddy";
-            button.type = "button";
-            button.dataset.writingId = item.id;
-            button.innerHTML = `<span class="${statusClass(item.status)}"></span><span class="buddy__name">${item.title}</span>`;
-            button.addEventListener("click", () => openWriting(item));
-            row.append(button);
+            const buddyElement = item.kind === "link" ? document.createElement("a") : document.createElement("button");
+            buddyElement.className = "buddy";
+            buddyElement.dataset.writingId = item.id;
+            buddyElement.innerHTML = `<span class="${statusClass(item.status)}"></span><span class="buddy__name">${item.title}</span>`;
+
+            if (item.kind === "link") {
+                buddyElement.href = item.url;
+                buddyElement.target = item.url.startsWith("mailto:") ? "_self" : "_blank";
+                buddyElement.rel = "noopener noreferrer";
+                buddyElement.setAttribute("aria-label", `${item.title} contact link`);
+            } else {
+                buddyElement.type = "button";
+                buddyElement.addEventListener("click", () => openWriting(item));
+            }
+
+            row.append(buddyElement);
             list.append(row);
         });
 

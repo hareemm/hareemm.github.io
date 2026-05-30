@@ -50,11 +50,25 @@
       "name": "Let's Chat",
       "items": [
         {
-          "id": "postcard-somewhere",
-          "title": "Postcard From Somewhere",
-          "file": "writings/postcard-somewhere.txt",
-          "timestamp": "5:17 PM",
-          "status": "away"
+          "id": "twitter",
+          "title": "Twitter",
+          "url": "https://x.com/hareemmannan",
+          "status": "online",
+          "kind": "link"
+        },
+        {
+          "id": "linkedin",
+          "title": "LinkedIn",
+          "url": "https://www.linkedin.com/in/hareem/",
+          "status": "online",
+          "kind": "link"
+        },
+        {
+          "id": "email",
+          "title": "Email",
+          "url": "mailto:hmannan03@gmail.com",
+          "status": "away",
+          "kind": "link"
         }
       ]
     }
