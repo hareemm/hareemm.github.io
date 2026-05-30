@@ -455,3 +455,16 @@ button.window-button {
     color: #7a0000;
     font-weight: 700;
 }
+
+
+.source-link {
+    float: right;
+    color: #000080;
+    font-weight: 400;
+    text-decoration: underline;
+}
+
+.source-link:hover,
+.source-link:focus {
+    color: #004eb7;
+}

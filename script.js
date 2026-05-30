@@ -102,6 +102,9 @@ async function openWriting(item) {
         return;
     }
 
+    const sourceLink = item.sourceUrl
+        ? `<a class="source-link" href="${item.sourceUrl}" target="_blank" rel="noopener noreferrer">original post</a>`
+        : "";
     const windowNumber = openWindows.size;
     const windowElement = document.createElement("article");
     windowElement.className = "window chat-window";
@@ -138,7 +141,7 @@ async function openWriting(item) {
 
         <div class="chat-window__body">
             <div class="transcript">
-                <p class="message-meta">${siteData.author}&nbsp;&nbsp;<span>${item.timestamp}</span></p>
+                <p class="message-meta">${siteData.author}&nbsp;&nbsp;<span>${item.timestamp}</span>${sourceLink}</p>
                 <div class="message-text"><p>Loading message...</p></div>
             </div>
         </div>
