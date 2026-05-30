@@ -1,5 +1,12 @@
+@import url("https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&display=swap");
+
 * {
     box-sizing: border-box;
+}
+
+:root {
+    --ui-font: Tahoma, Arial, Helvetica, sans-serif;
+    --reading-font: "Geist", "Inter", "Helvetica Neue", Arial, sans-serif;
 }
 
 html {
@@ -10,13 +17,15 @@ body {
     min-height: 100vh;
     margin: 0;
     color: #000000;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: var(--ui-font);
     font-size: 12px;
-    background: #3b72b8;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: geometricPrecision;
+    background: #386aa8;
     background-image:
         linear-gradient(90deg, rgba(255, 255, 255, 0.12) 1px, transparent 1px),
         linear-gradient(rgba(255, 255, 255, 0.10) 1px, transparent 1px),
-        linear-gradient(135deg, #315f9e 0%, #7aa5d7 55%, #c6d6ec 100%);
+        linear-gradient(135deg, #315f9e 0%, #719bd0 55%, #c6d6ec 100%);
     background-size: 24px 24px, 24px 24px, auto;
 }
 
@@ -48,7 +57,7 @@ button {
     color: #ffffff;
     font-size: 12px;
     font-weight: 700;
-    background: linear-gradient(90deg, #000080 0%, #0050c8 58%, #78aee8 100%);
+    background: linear-gradient(90deg, #00106f 0%, #004eb7 58%, #73a8df 100%);
     border: 1px solid #c0c0c0;
     border-bottom-color: #808080;
     text-shadow: 1px 1px 0 #00185a;
@@ -346,14 +355,15 @@ button.window-button {
 
 .transcript {
     min-height: 290px;
-    padding: 8px;
-    background: #ffffff;
+    padding: 10px 12px;
+    background: #fffefb;
     border: 2px inset #ffffff;
 }
 
 .message-meta {
-    margin: 0 0 7px;
+    margin: 0 0 9px;
     color: #000080;
+    font-family: var(--ui-font);
     font-size: 12px;
     font-weight: 700;
 }
@@ -364,8 +374,12 @@ button.window-button {
 }
 
 .message-text {
-    max-width: 66ch;
-    line-height: 1.42;
+    max-width: 68ch;
+    color: #171717;
+    font-family: var(--reading-font);
+    font-size: 14px;
+    line-height: 1.58;
+    letter-spacing: -0.01em;
 }
 
 .message-text p {
@@ -405,9 +419,10 @@ button.window-button {
 .fake-input {
     flex: 1;
     min-height: 44px;
-    padding: 7px;
+    padding: 8px;
     color: #555555;
-    background: #ffffff;
+    font-family: var(--reading-font);
+    background: #fffefb;
     border: 2px inset #ffffff;
 }
 
