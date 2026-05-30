@@ -1,56 +1,117 @@
-<!DOCTYPE html> 
-<html> 
-<head> 
-    <title>Home Questionnaire<span id="selection-marker-1" class="redactor-selection-marker"></span></title> 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Writing Buddy</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <main class="desktop" aria-label="Writing website preview">
+        <section class="window buddy-list" aria-labelledby="buddy-list-title">
+            <header class="title-bar">
+                <div class="title-bar__label">
+                    <img class="runner-icon" src="assets/runner-glyph.svg" alt="">
+                    <span id="buddy-list-title">Writing Buddy List</span>
+                </div>
+                <div class="window-controls" aria-hidden="true">
+                    <span class="window-button">_</span>
+                    <span class="window-button">x</span>
+                </div>
+            </header>
 
-<script>
-  !function(){var analytics=window.analytics=window.analytics||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","reset","group","track","ready","alias","debug","page","once","off","on"];analytics.factory=function(t){return function(){var e=Array.prototype.slice.call(arguments);e.unshift(t);analytics.push(e);return analytics}};for(var t=0;t<analytics.methods.length;t++){var e=analytics.methods[t];analytics[e]=analytics.factory(e)}analytics.load=function(t,e){var n=document.createElement("script");n.type="text/javascript";n.async=!0;n.src=("https:"===document.location.protocol?"https://":"http://")+"cdn.segment.com/analytics.js/v1/"+t+"/analytics.min.js";var o=document.getElementsByTagName("script")[0];o.parentNode.insertBefore(n,o);analytics._loadOptions=e};analytics.SNIPPET_VERSION="4.1.0";
-  analytics.load("XnrVNXwpvqS2rElojbAmPVnTHTMbXnZD");
-  analytics.page();
-  }}();
-</script> 
+            <div class="buddy-list__body">
+                <div class="status-card">
+                    <img class="status-card__icon" src="assets/runner-glyph.svg" alt="">
+                    <div>
+                        <p class="screen-name">hareemwrites</p>
+                        <p class="status-line">online - collecting drafts</p>
+                    </div>
+                </div>
 
-</head> 
-<body> 
-<h1>What is your favorite place to travel?</h1> 
-<p>I am building a directory of the sweetest travel destinations.</p>  
-<form name="travel" onsubmit="identify(event)">
-     What is your favorite travel destination?
-    <input name="destination" required="" size="81" type="text"/> 
-    <br><br><br> 
-    Any recommendations (cool things to do, places to visit or restaurants to eat)? 
-    <br><br> 
-    <textarea cols="81" name="details" required="" rows="10">
-    </textarea> 
-    <br><br> 
-    Name: <input name="fullname" required="" size="75" type="text"/> 
-    <br><br> 
-    Email: <input name="email" required="" size="75" type="email"/> 
-    <br><br>
-    <input name="submit" type="submit" value="submit"/>
-</form> 
-   <script type="text/javascript">
-      function identify(e){
-        e.preventDefault();
-        var form = e.target;
-        var email = form["email"].value;
-        var fullname = form["fullname"].value;
-        var destination = form["destination"].value;
-        var details = form["details"].value;
-        var user = {
-            email: email, 
-            name: fullname, 
-            destination: destination, 
-            details: details
-        };
-        analytics.identify(email, {
-            email: email, 
-            name: fullname
-        });
-        analytics.track('destination submitted', user, function() {
-            window.location.href = "";
-        });
-      }
-</script>
-</body> 
+                <div class="buddy-group">
+                    <h2 class="buddy-group__title">Recent</h2>
+                    <ul class="buddy-group__list">
+                        <li class="buddy">
+                            <span class="status-dot status-dot--online"></span>
+                            <span class="buddy__name">A Rainy Evening Note</span>
+                        </li>
+                        <li class="buddy">
+                            <span class="status-dot status-dot--away"></span>
+                            <span class="buddy__name">Tiny Rituals</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="buddy-group">
+                    <h2 class="buddy-group__title">Musings</h2>
+                    <ul class="buddy-group__list">
+                        <li class="buddy">
+                            <span class="status-dot status-dot--online"></span>
+                            <span class="buddy__name">Notes on Looking Closely</span>
+                        </li>
+                        <li class="buddy">
+                            <span class="status-dot status-dot--idle"></span>
+                            <span class="buddy__name">How Memory Keeps Time</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="buddy-group">
+                    <h2 class="buddy-group__title">Archive</h2>
+                    <ul class="buddy-group__list">
+                        <li class="buddy">
+                            <span class="status-dot status-dot--away"></span>
+                            <span class="buddy__name">Postcard From Somewhere</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <aside class="away-teaser" aria-label="Away message preview">
+                    <strong>Away Message</strong>
+                    <span>Writing, walking, saving small observations.</span>
+                </aside>
+            </div>
+        </section>
+
+        <article class="window chat-window" aria-labelledby="chat-title">
+            <header class="title-bar">
+                <div class="title-bar__label">
+                    <span class="status-dot status-dot--online"></span>
+                    <span id="chat-title">A Rainy Evening Note</span>
+                </div>
+                <div class="window-controls" aria-hidden="true">
+                    <span class="window-button">_</span>
+                    <span class="window-button">x</span>
+                </div>
+            </header>
+
+            <div class="chat-toolbar" aria-hidden="true">
+                <span>File</span>
+                <span>Edit</span>
+                <span>People</span>
+            </div>
+
+            <div class="chat-window__body">
+                <p class="message-meta">hareemwrites at 9:42 PM</p>
+                <div class="message-bubble">
+                    <p>
+                        This is where one full piece of writing will appear as a single long message.
+                        For now, it is placeholder text so we can focus on the shape, color, and mood
+                        of the page before adding any clicking or loading behavior.
+                    </p>
+                    <p>
+                        The finished version will let each buddy name open its own conversation window,
+                        with your writing inside instead of a typical chat exchange.
+                    </p>
+                </div>
+            </div>
+
+            <footer class="chat-input-preview" aria-hidden="true">
+                <div class="fake-input">This site is read-only: the writing is the message.</div>
+                <button type="button" disabled>Send</button>
+            </footer>
+        </article>
+    </main>
+</body>
 </html>
