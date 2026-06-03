@@ -34,27 +34,6 @@ export function CommandPalette({
     }
   }, [open]);
 
-  useEffect(() => {
-    const onKey = (e: KeyboardEvent) => {
-      if (!open) return;
-      if (e.key === "Escape") onClose();
-      if (e.key === "ArrowDown") {
-        e.preventDefault();
-        setFocus((f) => Math.min(f + 1, filtered.length - 1));
-      }
-      if (e.key === "ArrowUp") {
-        e.preventDefault();
-        setFocus((f) => Math.max(f - 1, 0));
-      }
-      if (e.key === "Enter" && filtered[focus]) {
-        onAction(filtered[focus].id);
-        onClose();
-      }
-    };
-    window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
-  });
-
   if (!open) return null;
 
   const q = query.toLowerCase().replace(/^\//, "");

@@ -1,0 +1,8 @@
+{
+  "name": "hareemm-github-io",
+  "private": true,
+  "scripts": {
+    "prototype": "npm --prefix work-session-prototype install && npm --prefix work-session-prototype run dev",
+    "prototype:build": "npm --prefix work-session-prototype run build"
+  }
+}

@@ -4,13 +4,25 @@ Clickable product prototype for **Work Session**, **/handoff**, and **/pickup** 
 
 ## Quick start
 
+**You must be in this folder** (not the repo root):
+
 ```bash
 cd work-session-prototype
 npm install
 npm run dev
 ```
 
-Open the URL shown (default `http://localhost:5173`).
+Open **http://localhost:5173** (terminal prints the exact URL).
+
+### Not working?
+
+| Problem | Fix |
+|--------|-----|
+| `work-session-prototype` folder missing | `git checkout cursor/work-session-collab-prototype-b5ca` |
+| `npm run dev` fails at repo root | `cd work-session-prototype` first |
+| Port in use | `npm run dev -- --port 5174` |
+| Blank page | Use a modern browser; check terminal for errors |
+| Expected GitHub Pages | This is a local Vite app — run `npm run dev` (not `index.html` at repo root) |
 
 ## Demo shortcuts
 
