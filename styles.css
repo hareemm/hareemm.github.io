@@ -657,3 +657,9 @@ button.window-button {
         display: none;
     }
 }
+
+
+.screen-handle {
+    color: #4a4a4a;
+    font-weight: 400;
+}

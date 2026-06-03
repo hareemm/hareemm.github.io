@@ -1,4 +1,4 @@
-const CACHE_VERSION = "mobile-1";
+const CACHE_VERSION = "guest-1";
 
 const buddyGroups = document.querySelector("#buddy-groups");
 const windowLayer = document.querySelector("#window-layer");
