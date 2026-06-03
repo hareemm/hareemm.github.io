@@ -14,15 +14,21 @@ npm run dev
 
 Open **http://localhost:5173** (terminal prints the exact URL).
 
+Or from the **repo root**:
+
+```bash
+npm run prototype
+```
+
 ### Not working?
 
 | Problem | Fix |
 |--------|-----|
-| `work-session-prototype` folder missing | `git checkout cursor/work-session-collab-prototype-b5ca` |
+| `work-session-prototype` folder missing | `git pull origin master` |
 | `npm run dev` fails at repo root | `cd work-session-prototype` first |
 | Port in use | `npm run dev -- --port 5174` |
 | Blank page | Use a modern browser; check terminal for errors |
-| Expected GitHub Pages | This is a local Vite app — run `npm run dev` (not `index.html` at repo root) |
+| Opened hareemm.github.io | That is the **static** AIM site — this prototype only runs via `npm run dev` locally |
 
 ## Demo shortcuts
 
