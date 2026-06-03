@@ -1,0 +1,169 @@
+.aim-desktop {
+  position: relative;
+  min-height: 100%;
+  padding: 24px;
+  font-family: Tahoma, Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  color: #000;
+  background: #386aa8;
+  background-image:
+    linear-gradient(90deg, rgba(255, 255, 255, 0.12) 1px, transparent 1px),
+    linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+    linear-gradient(135deg, #315f9e 0%, #719bd0 55%, #c6d6ec 100%);
+  background-size: 24px 24px, 24px 24px, auto;
+}
+
+.aim-window {
+  background: #c0c0c0;
+  border: 1px solid #000;
+  box-shadow:
+    inset 1px 1px 0 #fff,
+    inset -1px -1px 0 #404040,
+    6px 8px 0 rgba(0, 0, 0, 0.25);
+}
+
+.aim-title-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 22px;
+  padding: 2px 4px;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  background: linear-gradient(90deg, #00106f 0%, #004eb7 58%, #73a8df 100%);
+  border-bottom: 1px solid #808080;
+  text-shadow: 1px 1px 0 #00185a;
+}
+
+.aim-window-controls span {
+  display: inline-grid;
+  place-items: center;
+  width: 16px;
+  height: 14px;
+  margin-left: 2px;
+  background: #c0c0c0;
+  border: 1px solid #000;
+  color: #000;
+  font-size: 10px;
+  box-shadow: inset 1px 1px 0 #fff, inset -1px -1px 0 #707070;
+}
+
+.aim-menu-bar {
+  display: flex;
+  gap: 12px;
+  padding: 4px 8px;
+  background: #c0c0c0;
+  border-bottom: 1px solid #808080;
+  font-size: 11px;
+}
+
+.aim-buddy-list {
+  width: 220px;
+  position: relative;
+  z-index: 2;
+}
+
+.aim-buddy-body {
+  padding: 6px;
+  max-height: 320px;
+  overflow-y: auto;
+}
+
+.aim-user-strip {
+  display: flex;
+  gap: 8px;
+  padding: 6px;
+  background: #fff;
+  border: 1px inset #c0c0c0;
+  margin-bottom: 6px;
+}
+
+.aim-avatar {
+  width: 32px;
+  height: 32px;
+  background: linear-gradient(135deg, #6b8cce, #3d5a80);
+  border: 1px solid #000;
+}
+
+.aim-section-title {
+  font-weight: 700;
+  margin: 8px 0 4px;
+  color: #000080;
+}
+
+.aim-buddy-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 2px 4px;
+  cursor: default;
+}
+
+.aim-buddy-row:hover {
+  background: #316ac5;
+  color: #fff;
+}
+
+.aim-status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.aim-status-dot.online { background: #00cc00; border: 1px solid #006600; }
+.aim-status-dot.away { background: #ffcc00; border: 1px solid #996600; }
+.aim-status-dot.idle { background: #ff6666; border: 1px solid #990000; }
+
+.aim-away-card {
+  margin-top: 8px;
+  padding: 6px;
+  background: #ffffe1;
+  border: 1px solid #808080;
+  font-size: 11px;
+}
+
+.aim-floating {
+  position: absolute;
+  top: 48px;
+  left: 260px;
+  width: 280px;
+  z-index: 3;
+}
+
+.aim-floating.second {
+  top: 120px;
+  left: 320px;
+  z-index: 4;
+}
+
+.aim-chat-body {
+  height: 140px;
+  overflow-y: auto;
+  padding: 8px;
+  background: #fff;
+  border: 1px inset #c0c0c0;
+  margin: 6px;
+  font-size: 11px;
+  line-height: 1.4;
+}
+
+.aim-chat-input-row {
+  display: flex;
+  padding: 0 6px 6px;
+  gap: 4px;
+}
+
+.aim-chat-input-row input {
+  flex: 1;
+  font-size: 11px;
+  border: 1px inset #c0c0c0;
+}
+
+.aim-chat-input-row button {
+  padding: 2px 8px;
+  background: #c0c0c0;
+  border: 1px solid #000;
+  font-size: 11px;
+}
